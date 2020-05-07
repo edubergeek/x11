@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    xeyes:
+        build:
+            context: './compose/'
+            args:
+                APACHE_VERSION: ${APACHE_VERSION}
+        network_mode: host
+        environment:
+            - DISPLAY
+        volumes:
+            - '$HOME/.Xauthority:/root/.Xauthority:rw'
+        image: xeyes
